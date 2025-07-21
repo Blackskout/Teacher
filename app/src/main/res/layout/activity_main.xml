@@ -9,7 +9,12 @@
     
         <include 
             android:id="@+id/category" 
-            layout="@layout/list_item_category" 
+            layout="@layout/list_item_category"
         />
+    <include
+        android:id="@+id/question"
+        layout="@layout/item_card_question"
+        >
+    </include>
 
     </LinearLayout>

@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Teacher</string>
+    <string name="question">question</string>
+    <string name="question_1">Question #1</string>
+    <string name="loops">#loops</string>
+    <string name="what_is_the_function_of_continue_in_a_for_loop">What is the function of \'continue\' in a \'for\' loop?</string>
 </resources>
