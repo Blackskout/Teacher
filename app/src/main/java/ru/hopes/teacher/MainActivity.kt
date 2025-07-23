@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import ru.hopes.teacher.databinding.ActivityMainBinding
+import ru.hopes.teacher.holders.QuestionViewHolder
 
 class MainActivity : AppCompatActivity() {
 
@@ -23,5 +24,8 @@ class MainActivity : AppCompatActivity() {
         }
 
         binding.category.root.text = "Kotlin"
+        binding.question.questionContainer
+        val viewHolder = QuestionViewHolder(binding.question)
+        viewHolder.bind("for","description loops", listOf("Loop","kotlin"))
     }
 }
