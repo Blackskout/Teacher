@@ -6,13 +6,16 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import ru.hopes.teacher.databinding.ActivityMainBinding
-import ru.hopes.teacher.holders.QuestionViewHolder
+import ru.hopes.teacher.models.CategoryModel
 
 class MainActivity : AppCompatActivity() {
 
     private val binding: ActivityMainBinding by lazy {
         ActivityMainBinding.inflate(layoutInflater)
     }
+
+    private val adapter = MainListAdapter()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -23,9 +26,22 @@ class MainActivity : AppCompatActivity() {
             insets
         }
 
-        binding.category.root.text = "Kotlin"
-        binding.question.questionContainer
-        val viewHolder = QuestionViewHolder(binding.question)
-        viewHolder.bind("for","description loops", listOf("Loop","kotlin"))
+        binding.mainRv.adapter = adapter
+
+        binding.root.postDelayed(
+            {
+                adapter.setupList(
+                    listOf(
+                        CategoryModel("Kotlin"),
+                        CategoryModel("Android"),
+                        CategoryModel("Coroutines"),
+                        CategoryModel("Dagger 2"),
+                        CategoryModel("Network"),
+                        CategoryModel("Database"),
+                    )
+                )
+            },
+            5000
+        )
     }
 }
