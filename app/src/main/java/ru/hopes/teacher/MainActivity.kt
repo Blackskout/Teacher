@@ -31,7 +31,7 @@ class MainActivity : AppCompatActivity() {
 
         binding.root.postDelayed(
             {
-                adapter.setupList(
+                adapter.submitList(
                     listOf(
                         CategoryModel("Kotlin"),
                         QuestionModel("Что такое seald класс?", "Где и зачем используется?"),
@@ -45,6 +45,25 @@ class MainActivity : AppCompatActivity() {
                         QuestionModel(
                             "Что такое корутина?",
                             "Зачем они нужны и какую проблему они решают?"
+                        ),
+                        CategoryModel("Dagger 2"),
+                        CategoryModel("Network"),
+                        CategoryModel("Database"),
+                    )
+                )
+            },
+            10000
+        )
+
+        binding.root.postDelayed(
+            {
+                adapter.submitList(
+                    listOf(
+                        CategoryModel("Android"),
+                        QuestionModel(
+                            "Основные компоненты Android?",
+                            "Назовите все компоненты и для чего они используются",
+                            listOf("Android SDK",)
                         ),
                         CategoryModel("Dagger 2"),
                         CategoryModel("Network"),
