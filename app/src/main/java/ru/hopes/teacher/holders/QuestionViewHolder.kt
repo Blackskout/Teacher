@@ -7,23 +7,21 @@ import android.widget.TextView
 import androidx.core.view.isVisible
 import ru.hopes.teacher.R
 import ru.hopes.teacher.databinding.ListItemQuestionBinding
+import ru.hopes.teacher.models.QuestionModel
 
 class QuestionViewHolder(
-    private val questionBinding: ListItemQuestionBinding,
-) {
+    private val binding: ListItemQuestionBinding,
+) : BaseMainListViewHolder<QuestionModel>(binding.root) {
 
-    fun bind(
-        titleText: String,
-        descriptionText: String,
-        tagList: List<String>,
-    ) {
-        questionBinding.questionTitle.text = titleText
 
-        questionBinding.questionDescription.isVisible = descriptionText.isNotBlank()
-        questionBinding.questionDescription.text = descriptionText
+    override fun bind(item: QuestionModel) {
+        binding.questionTitle.text = item.titleText
 
-        questionBinding.questionTagList.isVisible = tagList.isNotEmpty()
-        questionBinding.questionTagList.bindTagList(tagList)
+        binding.questionDescription.isVisible = item.descriptionText.isNotBlank()
+        binding.questionDescription.text = item.descriptionText
+
+        binding.questionTagList.isVisible = item.tagList.isNotEmpty()
+        binding.questionTagList.bindTagList(item.tagList)
     }
 
     private fun LinearLayout.bindTagList(tagList: List<String>) {
@@ -36,7 +34,7 @@ class QuestionViewHolder(
             }
             val space = Space(context).apply {
                 val size = context.resources.getDimension(R.dimen.space_small).toInt()
-                layoutParams = LinearLayout.LayoutParams(size,size)
+                layoutParams = LinearLayout.LayoutParams(size, size)
             }
             addView(tagView)
             addView(space)

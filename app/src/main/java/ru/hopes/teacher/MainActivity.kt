@@ -7,6 +7,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import ru.hopes.teacher.databinding.ActivityMainBinding
 import ru.hopes.teacher.models.CategoryModel
+import ru.hopes.teacher.models.QuestionModel
 
 class MainActivity : AppCompatActivity() {
 
@@ -33,8 +34,18 @@ class MainActivity : AppCompatActivity() {
                 adapter.setupList(
                     listOf(
                         CategoryModel("Kotlin"),
+                        QuestionModel("Что такое seald класс?", "Где и зачем используется?"),
                         CategoryModel("Android"),
+                        QuestionModel(
+                            "Основные компоненты Android?",
+                            "Назовите все компоненты и для чего они используются",
+                            listOf("Android SDK",)
+                        ),
                         CategoryModel("Coroutines"),
+                        QuestionModel(
+                            "Что такое корутина?",
+                            "Зачем они нужны и какую проблему они решают?"
+                        ),
                         CategoryModel("Dagger 2"),
                         CategoryModel("Network"),
                         CategoryModel("Database"),
